@@ -38,7 +38,10 @@ export const App = () => {
   };
 
   // Delete task
-  const deleteTask = (id: number) => {};
+  const deleteTask = (id: number) => {
+    const newTasks = toDos.filter((task) => task.id !== id);
+    setToDos(newTasks)
+  };
 
   // Mark task as done
   const markTaskAsDone = (id: number) => {};
@@ -62,7 +65,7 @@ export const App = () => {
           {formMode === "addTask" ? (
             <div className="flex w-full justify-between space-x-8">
               <InputField value={newTask} setValue={setNewTask} />
-              <Button title="Add Task" onClick={addTask}/>
+              <Button title="Add Task" onClick={addTask} />
             </div>
           ) : (
             <div className="flex w-full justify-between space-x-8">
@@ -80,7 +83,10 @@ export const App = () => {
               .sort((a, b) => a.id - b.id)
               .map((todo) => (
                 <div key={todo.id} className="py-2">
-                  <TaskItem todo={todo} />
+                  <TaskItem
+                    todo={todo}
+                    deleteTask={deleteTask}
+                  />
                 </div>
               ))
           )}
