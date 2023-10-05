@@ -20,7 +20,7 @@ export const UpdateTaskForm = ({
 }: UpdateTaskFormProps) => {
   return (
     <>
-      <div className="xs:flex w-full justify-between xs:space-x-8 space-y-8 xs:space-y-0">
+      <div className="xs:flex w-full justify-between xs:space-x-4 space-y-8 xs:space-y-0">
         <InputField
           value={updateData && updateData.title}
           onChange={changeTask}

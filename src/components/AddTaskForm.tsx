@@ -16,8 +16,8 @@ export const AddTaskForm = ({
 }: AddTaskFormProps) => {
   return (
     <>
-      <div className="xs:flex w-full justify-between xs:space-x-8 space-y-8 xs:space-y-0">
-        <InputField value={newTask} onChange={setNewTask} />
+      <div className="xs:flex w-full justify-between xs:space-x-4 space-y-8 xs:space-y-0">
+        <InputField value={newTask} onChange={setNewTask} placeholder="Add task here..." />
         <Button type="submit" title="Add Task" onClick={addTask} />
       </div>
     </>
