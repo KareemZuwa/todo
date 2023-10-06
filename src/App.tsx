@@ -1,12 +1,6 @@
 import React from "react";
 import { Main } from "./components/Main";
 
-export interface ToDos {
-  id: number;
-  title: string;
-  status: boolean;
-}
-
 export const App = () => {
   return (
     <div className="h-full flex flex-col items-center mx-8">

@@ -1,5 +1,5 @@
 import React from "react";
-import { ToDos } from "../App";
+import { ToDos } from "./Main";
 import {
   CheckCircleIcon,
   PencilIcon,
