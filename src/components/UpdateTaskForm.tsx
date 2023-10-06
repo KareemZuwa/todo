@@ -5,7 +5,7 @@ import { ToDos } from "./Main";
 
 interface UpdateTaskFormProps {
   updateData: ToDos;
-  changeTask: (targetValue: string) => void;
+  editTask: (targetValue: string) => void;
   updateTask: () => void;
   cancelUpdateTask: () => void;
   formMode: boolean;
@@ -13,7 +13,7 @@ interface UpdateTaskFormProps {
 
 export const UpdateTaskForm = ({
   updateData,
-  changeTask,
+  editTask,
   updateTask,
   cancelUpdateTask,
   formMode,
@@ -23,7 +23,7 @@ export const UpdateTaskForm = ({
       <div className="xs:flex w-full justify-between xs:space-x-4 space-y-8 xs:space-y-0">
         <InputField
           value={updateData && updateData.title}
-          onChange={changeTask}
+          onChange={editTask}
         />
         <div className="xs:flex xs:space-x-4 xs:pr-0 space-y-4 xs:space-y-0">
           <Button

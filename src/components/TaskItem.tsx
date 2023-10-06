@@ -34,8 +34,9 @@ export const TaskItem = ({
         </div>
       </div>
       <div className="flex space-x-2">
-        <span
-          title="Completed / Not Completed"
+        <button
+          type="button"
+          name="Completed / Not Completed"
           onClick={(e) => completeTaskToggle(todo.id)}
         >
           <CheckCircleIcon
@@ -43,25 +44,22 @@ export const TaskItem = ({
               todo.status === true ? "text-green-400" : "text-white"
             }`}
           />
-        </span>
+        </button>
         {todo.status ? null : (
-          <span
-            title="Edit"
+          <button
+            type="button"
+            name="Edit"
             onClick={() => {
-              setUpdateData({
-                id: todo.id,
-                title: todo.title,
-                status: todo.status ? true : false,
-              });
+              setUpdateData(todo);
               toggleFormMode();
             }}
           >
             <PencilIcon className="w-5 cursor-pointer hover:text-yellow-200" />
-          </span>
+          </button>
         )}
-        <span title="Delete" onClick={() => deleteTask(todo.id)}>
+        <button type="button" name="Delete" onClick={() => deleteTask(todo.id)}>
           <TrashIcon className="w-5 cursor-pointer hover:text-yellow-200" />
-        </span>
+        </button>
       </div>
     </div>
   );

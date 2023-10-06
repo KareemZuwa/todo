@@ -5,7 +5,11 @@ interface InputFieldProps {
   placeholder?: string;
 }
 
-export const InputField = ({ value, onChange, placeholder }: InputFieldProps) => {
+export const InputField = ({
+  value,
+  onChange,
+  placeholder,
+}: InputFieldProps) => {
   return (
     <div className="w-full">
       <label htmlFor="text" className="sr-only">

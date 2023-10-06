@@ -17,9 +17,12 @@ const defaultEmptyTask: ToDos = {
 
 export const Main = () => {
   const [toDos, setToDos] = useState<ToDos[]>([]);
+
   const [newTask, setNewTask] = useState<string>("");
   const [updateData, setUpdateData] = useState<ToDos>(defaultEmptyTask);
+
   const [nextId, setNextId] = useState(1);
+
   const [isUpdateMode, setFormModeUpdate] = useState<boolean>(false);
   const toggleFormMode = () => {
     setFormModeUpdate(!isUpdateMode);
@@ -28,8 +31,7 @@ export const Main = () => {
   // Add task
   const addTask = () => {
     if (newTask) {
-      const newEntry = { id: nextId, title: newTask, status: false };
-      setToDos([...toDos, newEntry]);
+      setToDos([...toDos, { id: nextId, title: newTask, status: false }]);
       setNextId(nextId + 1);
       setNewTask("");
     }
@@ -38,6 +40,7 @@ export const Main = () => {
   // Delete task
   const deleteTask = (id: number) => {
     const newTasks = toDos.filter((task) => task.id !== id);
+    console.log(newTasks);
     const updatedTasksWithReassignedIds = newTasks.map((item, index) => ({
       ...item,
       id: index + 1,
@@ -47,23 +50,16 @@ export const Main = () => {
 
   // Mark task as done
   const markTaskAsDone = (id: number) => {
-    const newTask = toDos.map((task) => {
-      if (task.id === id) {
-        return { ...task, status: !task.status };
-      }
-      return task;
-    });
-    setToDos(newTask);
+    setToDos(
+      toDos.map((task) =>
+        task.id === id ? { ...task, status: !task.status } : task
+      )
+    );
   };
 
   // Change task
-  const changeTask = (targetValue: string) => {
-    const newEntry = {
-      id: updateData.id,
-      title: targetValue,
-      status: updateData.status ? true : false,
-    };
-    setUpdateData(newEntry);
+  const editTask = (targetValue: string) => {
+    setUpdateData({ ...updateData, title: targetValue });
   };
 
   // Cancel Update
@@ -74,11 +70,11 @@ export const Main = () => {
 
   // Update task
   const updateTask = () => {
-    const filterRecords = [...toDos].filter(
+    const filteredTasks = [...toDos].filter(
       (task) => task.id !== updateData.id
     );
-    const updatedObject = [...filterRecords, updateData];
-    setToDos(updatedObject);
+    setToDos([...filteredTasks, updateData]);
+
     setUpdateData(defaultEmptyTask);
     toggleFormMode();
   };
@@ -89,7 +85,7 @@ export const Main = () => {
         {isUpdateMode ? (
           <UpdateTaskForm
             updateData={updateData}
-            changeTask={changeTask}
+            editTask={editTask}
             updateTask={updateTask}
             cancelUpdateTask={cancelUpdateTask}
             formMode={isUpdateMode}

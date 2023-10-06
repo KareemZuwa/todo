@@ -1,7 +1,6 @@
 import React from "react";
 import { InputField } from "./InputField";
 import { Button } from "./Button";
-import { ToDos } from "./Main";
 
 interface AddTaskFormProps {
   newTask: string;
@@ -17,7 +16,11 @@ export const AddTaskForm = ({
   return (
     <>
       <div className="xs:flex w-full justify-between xs:space-x-4 space-y-8 xs:space-y-0">
-        <InputField value={newTask} onChange={setNewTask} placeholder="Add task here..." />
+        <InputField
+          value={newTask}
+          onChange={setNewTask}
+          placeholder="Add task here..."
+        />
         <Button type="submit" title="Add Task" onClick={addTask} />
       </div>
     </>
