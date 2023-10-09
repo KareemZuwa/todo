@@ -40,7 +40,6 @@ export const Main = () => {
   // Delete task
   const deleteTask = (id: number) => {
     const newTasks = toDos.filter((task) => task.id !== id);
-    console.log(newTasks);
     const updatedTasksWithReassignedIds = newTasks.map((item, index) => ({
       ...item,
       id: index + 1,
