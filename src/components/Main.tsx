@@ -21,8 +21,6 @@ export const Main = () => {
   const [newTask, setNewTask] = useState<string>("");
   const [updateData, setUpdateData] = useState<ToDos>(defaultEmptyTask);
 
-  const [nextId, setNextId] = useState(1);
-
   const [isUpdateMode, setFormModeUpdate] = useState<boolean>(false);
   const toggleFormMode = () => {
     setFormModeUpdate(!isUpdateMode);
@@ -31,8 +29,10 @@ export const Main = () => {
   // Add task
   const addTask = () => {
     if (newTask) {
-      setToDos([...toDos, { id: nextId, title: newTask, status: false }]);
-      setNextId(nextId + 1);
+      const maxId = Math.max(0, ...toDos.map((task) => task.id));
+      const newId = maxId + 1;
+
+      setToDos([...toDos, { id: newId, title: newTask, status: false }]);
       setNewTask("");
     }
   };
