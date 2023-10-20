@@ -1,21 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 
-const defaultTheme = require('tailwindcss/defaultTheme');
-module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
-  theme: {
-    screens: {
-      'xs': '475px',
-      ...defaultTheme.screens,
-    },
-    extend: {
-      fontFamily: {
-        custom: ['Montserrat', 'sans-serif']
-      },
+import { screens as _screens } from 'tailwindcss/defaultTheme';
+export const content = [
+  "./src/**/*.{js,jsx,ts,tsx}",
+];
+export const theme = {
+  screens: {
+    'xs': '475px',
+    ..._screens,
+  },
+  extend: {
+    fontFamily: {
+      custom: ['Montserrat', 'sans-serif']
     },
   },
-  plugins: [],
-}
+};
+export const plugins = [];
 

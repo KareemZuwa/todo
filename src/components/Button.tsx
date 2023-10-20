@@ -3,10 +3,9 @@ interface ButtonProps {
   title: string;
   onClick?: () => void;
   type?: "button" | "submit" | "reset" | undefined;
-  formMode?: boolean;
 }
 
-export const Button = ({ title, onClick, type, formMode }: ButtonProps) => {
+export const Button = ({ title, onClick, type }: ButtonProps) => {
   return (
     <>
       <button

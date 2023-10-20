@@ -37,7 +37,7 @@ export const TaskItem = ({
         <button
           type="button"
           name="Completed / Not Completed"
-          onClick={(e) => completeTaskToggle(todo.id)}
+          onClick={() => completeTaskToggle(todo.id)}
         >
           <CheckCircleIcon
             className={`w-5 cursor-pointer hover:text-yellow-200 ${

@@ -3,6 +3,11 @@ module.exports = {
         "browser": true,
         "es2021": true
     },
+    settings: {
+        react: {
+          version: "18.2.0"
+        }
+    },
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -14,7 +19,7 @@ module.exports = {
                 "node": true
             },
             "files": [
-                ".eslintrc.{js,cjs}"
+                ".eslintrc.{js,cjs, json}"
             ],
             "parserOptions": {
                 "sourceType": "script"

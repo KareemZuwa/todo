@@ -16,7 +16,6 @@ export const UpdateTaskForm = ({
   editTask,
   updateTask,
   cancelUpdateTask,
-  formMode,
 }: UpdateTaskFormProps) => {
   return (
     <>
@@ -30,7 +29,6 @@ export const UpdateTaskForm = ({
             title="Update"
             type="submit"
             onClick={updateTask}
-            formMode={formMode}
           />
           <Button title="Cancel" type="reset" onClick={cancelUpdateTask} />
         </div>
