@@ -25,10 +25,13 @@ export const TaskItem = ({
     <div
       className={`flex justify-between bg-[#586994] py-1.5 rounded px-4 text-white`}
     >
-      <div className="flex space-x-4">
-        <div className="rounded-full border px-2 text-sm flex items-center">
-          {todo.id}
+      <div className="flex mr-4">
+        <div className="flex items-center">
+          <div className="rounded-full border w-6 h-6 mr-4 text-sm flex items-center justify-center">
+            {todo.id}
+          </div>
         </div>
+
         <div className={`${todo.status === true && "line-through opacity-50"}`}>
           {todo.title}
         </div>
